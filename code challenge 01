@@ -1,0 +1,24 @@
+function generateTasks(objSlug) {
+  const tasks = [];
+  const today = new Date();
+  const year = today.getFullYear();
+  const NNN = 999;
+
+  for (let i = 0; i < 5; i++) {
+    const taskId = `OBJ-${year}-${NNN}-T${String(i + 1).padStart(2, '0')}`;
+    const title = "Draft ICP Brief";
+
+    // Correct way to clone 'today' and add (i * 2) days
+    const dueDate = new Date(today.getTime()); 
+    dueDate.setDate(dueDate.getDate() + (i * 2));
+    const dueDateStr = dueDate.toISOString().split('T')[0];
+
+    tasks.push({
+      taskId,
+      title,
+      dueDate: dueDateStr
+    });
+  }
+
+  return tasks;
+}
