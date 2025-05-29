@@ -9,7 +9,7 @@ function generateTasks(objSlug) {
     const title = "Draft ICP Brief";
 
     // Correct way to clone 'today' and add (i * 2) days
-    const dueDate = new Date(today.getTime()); 
+    const dueDate = new Date(today.getTime());
     dueDate.setDate(dueDate.getDate() + (i * 2));
     const dueDateStr = dueDate.toISOString().split('T')[0];
 
@@ -22,3 +22,7 @@ function generateTasks(objSlug) {
 
   return tasks;
 }
+
+// Call the function and log the output
+const tasks = generateTasks('someSlug');
+console.log(tasks);
